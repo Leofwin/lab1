@@ -12,10 +12,11 @@
 Button button(PIN_BUTTON);
 Buzzer buzzer(PIN_BUZZER);
 
+int seed = 17;
 bool isActivated = false;
-int notes[] = {NOTE_G3, NOTE_SILENCE, NOTE_G3, NOTE_SILENCE, NOTE_G3, NOTE_SILENCE, NOTE_DS3, NOTE_SILENCE};
-double durations[] = {8, 8, 1, 8, 1, 8, 1, 24};
-int melodyLength = 8;
+int notes[] = {NOTE_DS4, NOTE_SILENCE, NOTE_DS4, NOTE_SILENCE, NOTE_DS4, NOTE_SILENCE};
+double durations[] = {1, 1, 1, 1, 1, 1};
+int melodyLength = 6;
 
 void setup()
 {
@@ -34,10 +35,11 @@ void loop()
     {
         isActivated = true;
         buzzer.turnSoundOn();
-        set_rgb(128, 128, 128);
     }
 
     if (isActivated) {
+        set_rgb(seed, 0, 0);
+        seed = (seed + 133)%256;
         buzzer.playSound();
         if (buzzer.isMelodyOver()) {
             isActivated = false;
