@@ -22,9 +22,10 @@ void setup()
     buzzer.setMelody(notes, durations, melodyLength);
     buzzer.turnSoundOn();
 
-    // pinMode(R_OUT, OUTPUT);
-    // pinMode(G_OUT, OUTPUT);
-    // pinMode(B_OUT, OUTPUT);
+     pinMode(R_OUT, OUTPUT);
+     pinMode(G_OUT, OUTPUT);
+     pinMode(B_OUT, OUTPUT);
+     set_rgb(0, 0, 0);
 }
 
 void loop() 
@@ -33,8 +34,7 @@ void loop()
     {
         isActivated = true;
         buzzer.turnSoundOn();
-        buzzer.playSound();
-        // set_rgb(128, 128, 128);
+        set_rgb(128, 128, 128);
     }
 
     if (isActivated) {
@@ -46,7 +46,7 @@ void loop()
     else 
     {
         buzzer.turnSoundOff();
-        // set_rgb(0, 0, 0);
+        set_rgb(0, 0, 0);
     }
 }
 
