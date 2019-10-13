@@ -39,7 +39,7 @@ void loop()
 
     if (isActivated) {
         set_rgb(seed, 0, 0);
-        seed = (seed + 133)%256;
+        updateSeed();
         buzzer.playSound();
         if (buzzer.isMelodyOver()) {
             isActivated = false;
@@ -50,6 +50,11 @@ void loop()
         buzzer.turnSoundOff();
         set_rgb(0, 0, 0);
     }
+}
+
+void updateSeed()
+{
+    seed = (seed+133)%256;
 }
 
 void set_rgb(int r, int g, int b)
