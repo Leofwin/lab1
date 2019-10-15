@@ -34,7 +34,6 @@ void loop()
     if (button.wasPressed())
     {
         isActivated = true;
-        buzzer.turnSoundOn();
     }
 
     if (isActivated) {
@@ -47,7 +46,6 @@ void loop()
     }
     else 
     {
-        buzzer.turnSoundOff();
         set_rgb(0, 0, 0);
     }
 }
